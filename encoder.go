@@ -35,7 +35,7 @@ func encode_worker(id int) {
 		hashCtx.Write([]byte(j.Payload))
 		hashSumBlob := hashCtx.Sum(nil)
 		hashHexString := fmt.Sprintf("%x", hashSumBlob)
-		fmt.Printf("worker %d: %s -> %s\n", id, j.Payload, hashHexString)
+		//fmt.Printf("worker %d: %s -> %s\n", id, j.Payload, hashHexString)
 		j.ResultsQueue <- EncodeJobData{
 			Payload: hashHexString,
 			LineNum: j.LineNum,
